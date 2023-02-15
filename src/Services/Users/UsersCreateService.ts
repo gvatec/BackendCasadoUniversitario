@@ -3,9 +3,9 @@ import prismaclient from "../../Prisma/Prismacliente";
 interface Usercredencials {
   email: string;
   name: string;
+  password: string;
   datanascimento: Date;
   telefone: number;
-  password: string;
 }
 
 class UserCreateService {
@@ -16,23 +16,35 @@ class UserCreateService {
     datanascimento,
     password,
   }: Usercredencials) {
-    const usercreate = await prismaclient.users.create({
-      data: {
-        name: name,
-        email: email,
-        telefone: telefone,
-        datanascimento: datanascimento,
-        password: password,
-      },
-      select: {
-        id: true,
-        email: true,
-        name: true,
-        telefone: true,
-      },
-    });
-    return usercreate;
-  }
+
+    const userExists = await prismaclient.users.findFirst({
+      where: {
+        email: email
+      }
+    })
+
+    if(userExists){
+      throw new Error("Usuario já existe!");
+    }else{
+      const usercreate = await prismaclient.users.create({
+        data: {
+          name: name,
+          email: email,
+          password: password,
+          datanascimento: datanascimento,
+          telefone: telefone,
+        },
+        select: {
+          id: true,
+          email: true,
+          name: true,
+          telefone: true,
+        },
+      });
+      return usercreate;
+    }
+
+    }
 }
 
 export { UserCreateService };
