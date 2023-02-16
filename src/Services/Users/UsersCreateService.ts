@@ -4,8 +4,8 @@ interface Usercredencials {
   email: string;
   name: string;
   password: string;
-  datanascimento: Date;
-  telefone: number;
+  datanascimento: string;
+  telefone: string;
 }
 
 class UserCreateService {
@@ -22,10 +22,11 @@ class UserCreateService {
         email: email
       }
     })
-
     if(userExists){
-      throw new Error("Usuario já existe!");
-    }else{
+      throw new Error("User already exists")
+      
+    }
+
       const usercreate = await prismaclient.users.create({
         data: {
           name: name,
@@ -39,12 +40,13 @@ class UserCreateService {
           email: true,
           name: true,
           telefone: true,
+          datanascimento:true
         },
       });
       return usercreate;
     }
 
-    }
+    
 }
 
 export { UserCreateService };

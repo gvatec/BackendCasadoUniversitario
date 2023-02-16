@@ -4,19 +4,20 @@
 generator client {
   provider = "prisma-client-js"
 }
-
+//mysql://user:password@localhost:3306/mydatabase
 datasource db {
-  provider = "mysql"
-  url      = ""
+  provider = "postgresql"
+  url      = "env(DATABASE_URL)"
 }
-
 model Users {
-  id Int @id @default(autoincrement())
-  email String  
+  id String @id @default(uuid()) @unique
   name String
+  email String
+  telefone String
+  datanascimento String
   password String
-  datanascimento DateTime
-  telefone Int
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
 
   @@map("users")
 }
