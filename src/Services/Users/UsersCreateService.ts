@@ -1,3 +1,4 @@
+import  express  from "express";
 import prismaclient from "../../Prisma/Prismacliente";
 
 interface Usercredencials {
@@ -24,8 +25,8 @@ class UserCreateService {
     })
     if(userExists){
       throw new Error("User already exists")
-      
     }
+
 
       const usercreate = await prismaclient.users.create({
         data: {

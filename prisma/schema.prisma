@@ -1,23 +1,29 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
-//mysql://user:password@localhost:3306/mydatabase
-datasource db {
-  provider = "postgresql"
-  url      = "env(DATABASE_URL)"
-}
-model Users {
-  id String @id @default(uuid()) @unique
-  name String
-  email String
-  telefone String
-  datanascimento String
-  password String
-  created_at DateTime? @default(now())
-  updated_at DateTime? @default(now())
 
-  @@map("users")
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:admin@localhost:3306/db_casadouniversitario"
+}
+
+model users {
+  id             String    @id @unique @default(uuid())
+  name           String
+  email          String
+  telefone       String
+  datanascimento String
+  password       String
+  created_at     DateTime? @default(now())
+  updated_at     DateTime? @default(now())
+}
+
+model session {
+  iduser         String @id @unique
+  name           String
+  email          String
+  telefone       String
+  datanascimento String
+  created_at     DateTime? @default(now())
+  updated_at     DateTime? @default(now())
 }

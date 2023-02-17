@@ -12,7 +12,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     if(err instanceof Error){
       //Se for uma instancia do tipo error
       return res.status(400).json({
-        error: err.message
+        Error: err.message
       })
     }
   
@@ -20,7 +20,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
       status: 'error',
       message: 'Internal server error.'
     })
-  
   })
 
 app.listen(3333, () => console.log('server online'))
