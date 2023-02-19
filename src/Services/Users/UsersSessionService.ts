@@ -1,5 +1,7 @@
 import prismaclient from "../../Prisma/Prismacliente";
-import { NextFunction } from "express";
+
+
+
 interface Userscredencialssession {
   email: string;
   password: string;
@@ -14,7 +16,7 @@ class UsersSessionService {
     });
 
     if (!session) {
-      throw new Error('Usuario não encontrado / dados incorretos');
+      throw new Error("Usuario não encontrado / dados incorretos");
     }
 
     if (password != session.password) {
