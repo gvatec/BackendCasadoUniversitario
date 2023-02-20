@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = "mysql://root:admin@localhost:3306/db_casadouniversitario"
+  url      = "mysql://admin:admin@localhost:3306/db_casadouniversitario"
 }
 
 model users {
@@ -19,7 +19,7 @@ model users {
 }
 
 model session {
-  iduser         String @id @unique
+  iduser         String    @id @unique
   name           String
   email          String
   telefone       String
