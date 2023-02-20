@@ -1,26 +1,25 @@
-import express, { Request, Response, NextFunction } from 'express'
-import 'express-async-errors'
-import cors from 'cors'
-import { route } from './routes'
+import express, { Request, Response, NextFunction } from "express";
+import "express-async-errors";
+import cors from "cors";
+import { route } from "./routes";
 
+const app = express();
 
-const app = express()
-
-app.use(express.json())
-app.use(cors())
-app.use(route)
+app.use(express.json());
+app.use(cors());
+app.use(route);
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof Error) {
     //Se for uma instancia do tipo error
     return res.status(400).json({
-      Error: err.message
-    })
+      Error: err.message,
+    });
   }
 
   return res.status(500).json({
-    status: 'error',
-    message: 'Internal server error.'
-  })
-})
+    status: "error",
+    message: "Internal server error.",
+  });
+});
 
-app.listen(3333 || process.env.PORT, () => console.log('server online'))
+app.listen(process.env.PORT, () => console.log("server online"));
