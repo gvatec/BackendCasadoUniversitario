@@ -14,8 +14,14 @@ model users {
   telefone       String
   datanascimento String
   password       String
+  cpf            Int?
+  nomemae        String?
+  rg             String?
+  urlfoto        String?
   created_at     DateTime? @default(now())
   updated_at     DateTime? @default(now())
+
+  @@map("users")
 }
 
 model session {
@@ -26,4 +32,6 @@ model session {
   datanascimento String
   created_at     DateTime? @default(now())
   updated_at     DateTime? @default(now())
+
+  @@map("session")
 }

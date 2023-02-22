@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 
 class UsersCreateControllers {
   async handle(req: Request, res: Response) {
-    const { name, email, password, telefone, datanascimento } = req.body;
+    const { name, email, password, telefone, datanascimento, rg, cpf, nomemae,urlfoto } = req.body;
 
     const usercreate = new UserCreateService();
     const create = await usercreate.execute({
@@ -12,6 +12,10 @@ class UsersCreateControllers {
       password,
       telefone,
       datanascimento,
+      rg,
+      cpf,
+      nomemae,
+      urlfoto
     });
 
     return res.json(create);

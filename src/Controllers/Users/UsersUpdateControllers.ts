@@ -1,23 +1,27 @@
 import { UsersUadateService } from "../../Services/Users/UsersUpdateService";
-import { Request,Response } from "express";
+import { Request, Response } from "express";
 
-class UsersUpdateControllers{
-    async handle(req:Request,res:Response){
-        const {id} = req.params
-        const {name,email,datanacimento,telefone} = req.body
+class UsersUpdateControllers {
+  async handle(req: Request, res: Response) {
+    const { id } = req.params;
+    const { name, email, datanacimento, telefone, rg, cpf, nomemae,urlfoto } = req.body;
 
-        const userupdate = new UsersUadateService();
+    const userupdate = new UsersUadateService();
 
-        const update = await userupdate.execute({
-        id,
-        name,
-        email,
-        datanacimento,
-        telefone
-        })
+    const update = await userupdate.execute({
+      id,
+      name,
+      email,
+      datanacimento,
+      telefone,
+      rg,
+      cpf,
+      nomemae,
+      urlfoto
+    });
 
-        return res.json(update)
-    }
+    return res.json(update);
+  }
 }
 
-export {UsersUpdateControllers}
+export { UsersUpdateControllers };
