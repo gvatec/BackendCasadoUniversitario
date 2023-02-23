@@ -7,9 +7,10 @@ interface UsersUpdateServiceCredencials {
   datanacimento: string;
   telefone: string;
   rg: string;
-  cpf: number;
+  cpf: string;
   nomemae: string;
   urlfoto: string;
+  cep:string;
 }
 class UsersUadateService {
   async execute({
@@ -22,6 +23,7 @@ class UsersUadateService {
     cpf,
     nomemae,
     urlfoto,
+    cep
   }: UsersUpdateServiceCredencials) {
     const updateuser = prismaclient.users.update({
       where: {
@@ -36,6 +38,7 @@ class UsersUadateService {
         nomemae: nomemae,
         rg: rg,
         urlfoto: urlfoto,
+        cep:cep
       },
     });
     return updateuser;

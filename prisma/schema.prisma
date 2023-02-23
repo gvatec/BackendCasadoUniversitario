@@ -14,10 +14,11 @@ model users {
   telefone       String
   datanascimento String
   password       String
-  cpf            Int?
+  cpf            String?
   nomemae        String?
   rg             String?
   urlfoto        String?
+  cep            String?
   created_at     DateTime? @default(now())
   updated_at     DateTime? @default(now())
 

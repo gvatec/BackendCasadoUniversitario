@@ -7,9 +7,10 @@ interface Usercredencials {
   datanascimento: string;
   telefone: string;
   rg: string;
-  cpf: number;
+  cpf: string;
   nomemae: string;
   urlfoto: string;
+  cep:string
 }
 
 class UserCreateService {
@@ -23,6 +24,7 @@ class UserCreateService {
     cpf,
     nomemae,
     urlfoto,
+    cep
   }:Usercredencials) {
     const userExists = await prismaclient.users.findFirst({
       where: {
@@ -43,7 +45,8 @@ class UserCreateService {
         rg: rg,
         cpf: cpf,
         nomemae: nomemae,
-        urlfoto: urlfoto
+        urlfoto: urlfoto,
+        cep:cep
       },
       select: {
         id: true,
@@ -52,6 +55,7 @@ class UserCreateService {
         telefone: true,
         datanascimento: true,
         urlfoto: true,
+        cep:true
       },
     });
     return usercreate;

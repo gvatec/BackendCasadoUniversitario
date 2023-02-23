@@ -7,7 +7,8 @@ class UsersListAllServices{
                 name:true,
                 email:true,
                 telefone:true,
-                datanascimento:true
+                datanascimento:true,
+                urlfoto:true
             }
         })
 

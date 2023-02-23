@@ -8,6 +8,7 @@ class UserSessionControllers {
         const { email, password } = req.body
 
         const createsession = await session.execute({
+           
             email,
             password
         })
