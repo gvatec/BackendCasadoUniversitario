@@ -5,10 +5,11 @@ import prismaclient from "../../Prisma/Prismacliente";
 interface Userscredencialssession {
   email: string;
   password: string;
+  urlfoto:string
 }
 
 class UsersSessionService {
-  async execute({ email, password }: Userscredencialssession) {
+  async execute({ email, password,urlfoto }: Userscredencialssession) {
     const session = await prismaclient.users.findFirst({
       where: {
         email: email,
@@ -31,6 +32,7 @@ class UsersSessionService {
         email: session.email,
         telefone: session.telefone,
         datanascimento: session.datanascimento,
+        urlfoto:session.urlfoto
       },
     });
     return createsession;
