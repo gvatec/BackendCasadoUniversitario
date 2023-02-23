@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = "mysql://root:NJsd2m6wLhbv65e2xRjh@containers-us-west-160.railway.app:6623/railway"
+  url      = "mysql://root:o0WWDFUoalXaq8m5myQC@containers-us-west-145.railway.app:5463/railway"
 }
 
 model users {
