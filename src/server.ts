@@ -26,4 +26,4 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-app.listen(process.env.PORT || 3005);
+app.listen(process.env.PORT);
