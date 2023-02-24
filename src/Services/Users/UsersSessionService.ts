@@ -1,15 +1,13 @@
 import prismaclient from "../../Prisma/Prismacliente";
 
-
-
 interface Userscredencialssession {
   email: string;
   password: string;
-  urlfoto:string
+  urlfoto: string;
 }
 
 class UsersSessionService {
-  async execute({ email, password,urlfoto }: Userscredencialssession) {
+  async execute({ email, password, urlfoto }: Userscredencialssession) {
     const session = await prismaclient.users.findFirst({
       where: {
         email: email,
@@ -21,8 +19,7 @@ class UsersSessionService {
     }
 
     if (password != session.password) {
-      throw new Error('Senha incorreta');
-
+      throw new Error("Senha incorreta");
     }
 
     const createsession = await prismaclient.session.create({
@@ -32,7 +29,9 @@ class UsersSessionService {
         email: session.email,
         telefone: session.telefone,
         datanascimento: session.datanascimento,
-        urlfoto:session.urlfoto
+        urlfoto: session.urlfoto,
+        rg: session.rg,
+        cpf: session.cpf,
       },
     });
     return createsession;
