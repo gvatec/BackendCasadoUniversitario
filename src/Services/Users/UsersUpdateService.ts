@@ -9,7 +9,6 @@ interface UsersUpdateServiceCredencials {
   rg: string;
   cpf: string;
   nomemae: string;
-  urlfoto: string;
   cep:string;
 }
 class UsersUadateService {
@@ -22,7 +21,6 @@ class UsersUadateService {
     rg,
     cpf,
     nomemae,
-    urlfoto,
     cep
   }: UsersUpdateServiceCredencials) {
     const updateuser = prismaclient.users.update({
@@ -37,7 +35,6 @@ class UsersUadateService {
         cpf: cpf,
         nomemae: nomemae,
         rg: rg,
-        urlfoto: urlfoto,
         cep:cep
       },
     });
