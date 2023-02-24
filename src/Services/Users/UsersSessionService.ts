@@ -32,6 +32,7 @@ class UsersSessionService {
         urlfoto: session.urlfoto,
         rg: session.rg,
         cpf: session.cpf,
+        nomemae:session.nomemae
       },
     });
     return createsession;
