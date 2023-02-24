@@ -26,14 +26,17 @@ model users {
 }
 
 model session {
-  iduser         String    @id @unique
+  iduser         String  @id @unique
   name           String
   email          String
   telefone       String
   datanascimento String
   urlfoto        String?
-  created_at     DateTime? @default(now())
-  updated_at     DateTime? @default(now())
+  cpf            String?
+  nomemae        String?
+  rg             String?
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
 
   @@map("session")
 }
