@@ -1,4 +1,5 @@
 import prismaclient from "../../Prisma/Prismacliente";
+import { compare } from "bcrypt";
 
 interface Userscredencialssession {
   email: string;
@@ -18,8 +19,10 @@ class UsersSessionService {
       throw new Error("Usuario não encontrado / dados incorretos");
     }
 
-    if (password != session.password) {
-      throw new Error("Senha incorreta");
+ 
+    const passCompare = await compare(password, session.password)
+    if (!passCompare) {
+      throw new Error("Senha incorreta!");
     }
 
     const createsession = await prismaclient.session.create({
