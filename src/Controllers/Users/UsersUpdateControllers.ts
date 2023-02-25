@@ -4,33 +4,24 @@ import { UsersUadateService } from "../../Services/Users/UsersUpdateService";
 class UsersUpdateControllers {
   async handle(req: Request, res: Response) {
     const { id } = req.params;
-    const { name, email, datanacimento, telefone, rg, cpf, nomemae,cep } = req.body;
+    const { name, email, datanacimento, telefone, rg, cpf, nomemae, cep } = req.body;
 
     const userupdate = new UsersUadateService();
 
-    if(!req.file){
-      throw new Error("error upload file")
-    }else{
+    const update = await userupdate.execute({
+      id,
+      name,
+      email,
+      datanacimento,
+      telefone,
+      rg,
+      cpf,
+      nomemae,
+      cep,
+    });
 
-      const {filename} = req.file
-      console.log(filename);
-  
-      const update = await userupdate.execute({
-        id,
-        name,
-        email,
-        datanacimento,
-        telefone,
-        rg,
-        cpf,
-        nomemae,
-        cep
-      });
-  
-      return res.json(update);
-    }
-
-    }
+    return res.json(update);
+  }
 }
 
 export { UsersUpdateControllers };

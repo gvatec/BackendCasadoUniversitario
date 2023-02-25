@@ -16,7 +16,7 @@ const upload = multer(uploadConfig.upload("./tmp"));
 //--------Rotas de usuarios-----------
 route.post("/users", new UsersCreateControllers().handle);
 route.get("/users", new UsersListAllControllers().handle);
-route.put("/users/:id", upload.single("file"), new UsersUpdateControllers().handle);
+route.put("/users/:id", new UsersUpdateControllers().handle);
 route.put("/profile/:id", upload.single("file"), new UsersProfileImageupdateController().handle);
 route.delete("/users/:id", new UserDeleteControllers().handle);
 
