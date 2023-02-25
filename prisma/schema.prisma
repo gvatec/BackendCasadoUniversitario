@@ -12,7 +12,7 @@ model users {
   name           String
   email          String
   telefone       String
-  datanascimento String
+  datanascimento String 
   password       String
   cpf            String?
   nomemae        String?
