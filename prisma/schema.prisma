@@ -12,7 +12,7 @@ model users {
   name           String
   email          String
   telefone       String
-  datanascimento String 
+  datanascimento String
   password       String
   cpf            String?
   nomemae        String?
@@ -26,17 +26,18 @@ model users {
 }
 
 model session {
-  iduser         String  @id @unique
+  id             String    @id @unique @default(uuid())
+  iduser         String 
   name           String
-  email          String
+  email          String 
   telefone       String
   datanascimento String
   urlfoto        String?
-  cpf            String?
+  cpf            String?   
   nomemae        String?
   rg             String?
-  created_at DateTime? @default(now())
-  updated_at DateTime? @default(now())
+  created_at     DateTime? @default(now())
+  updated_at     DateTime? @default(now())
 
   @@map("session")
 }
