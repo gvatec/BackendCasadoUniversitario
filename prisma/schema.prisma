@@ -14,30 +14,30 @@ model users {
   telefone       String
   datanascimento String
   password       String
+  created_at     DateTime? @default(now())
+  updated_at     DateTime? @default(now())
   cpf            String?
   nomemae        String?
   rg             String?
-  urlfoto        String?
   cep            String?
-  created_at     DateTime? @default(now())
-  updated_at     DateTime? @default(now())
+  urlfoto        String?
 
   @@map("users")
 }
 
 model session {
-  id             String    @id @unique @default(uuid())
-  iduser         String 
+  iduser         String
   name           String
-  email          String 
+  email          String
   telefone       String
   datanascimento String
-  urlfoto        String?
-  cpf            String?   
-  nomemae        String?
-  rg             String?
   created_at     DateTime? @default(now())
   updated_at     DateTime? @default(now())
+  urlfoto        String?
+  cpf            String?
+  nomemae        String?
+  rg             String?
+  id             String    @id @unique @default(uuid())
 
   @@map("session")
 }
