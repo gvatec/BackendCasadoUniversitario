@@ -37,18 +37,6 @@ class UsersUadateService {
         rg: rg,
         cep:cep
       },
-      select: {
-        id: true,
-        email: true,
-        name: true,
-        telefone: true,
-        datanascimento: true,
-        urlfoto: true,
-        cep: true,
-        nomemae:true,
-        rg:true,
-        cpf:true
-      },
     });
     return updateuser;
   }
