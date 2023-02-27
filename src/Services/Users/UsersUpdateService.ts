@@ -23,7 +23,7 @@ class UsersUadateService {
     nomemae,
     cep
   }: UsersUpdateServiceCredencials) {
-    const updateuser = prismaclient.users.update({
+    const updateuser = await prismaclient.users.update({
       where: {
         id: id,
       },
