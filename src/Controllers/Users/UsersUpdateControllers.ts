@@ -4,7 +4,7 @@ import { UsersUadateService } from "../../Services/Users/UsersUpdateService";
 class UsersUpdateControllers {
   async handle(req: Request, res: Response) {
     const { id } = req.params;
-    const { name, email, datanacimento, telefone, rg, cpf, nomemae, cep } = req.body;
+    const { name, email, datanascimento, telefone, rg, cpf, nomemae, cep } = req.body;
 
     const userupdate = new UsersUadateService();
 
@@ -12,7 +12,7 @@ class UsersUpdateControllers {
       id,
       name,
       email,
-      datanacimento,
+      datanascimento,
       telefone,
       rg,
       cpf,

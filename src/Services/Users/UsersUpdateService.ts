@@ -4,7 +4,7 @@ interface UsersUpdateServiceCredencials {
   id: string;
   name: string;
   email: string;
-  datanacimento: string;
+  datanascimento: string;
   telefone: string;
   rg: string;
   cpf: string;
@@ -16,7 +16,7 @@ class UsersUadateService {
     id,
     name,
     email,
-    datanacimento,
+    datanascimento,
     telefone,
     rg,
     cpf,
@@ -25,12 +25,12 @@ class UsersUadateService {
   }: UsersUpdateServiceCredencials) {
     const updateuser = await prismaclient.users.update({
       where: {
-        id: id,
+       id:id
       },
       data: {
         name: name,
         email: email,
-        datanascimento: datanacimento,
+        datanascimento: datanascimento,
         telefone: telefone,
         cpf: cpf,
         nomemae: nomemae,
